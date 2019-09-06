@@ -4,7 +4,9 @@
 			<th>Id</th>
 			<th>Nome do Evento</th>
 			<th>Preço do Ingresso</th>
+			<th>Preço com Desconto</th>
 			<th>Descrição</th>
+			<th>Ações</th>
 		</tr>
 	</thead>
 
@@ -15,11 +17,23 @@
 		<tr>
 			<td><?= $evento['id']; ?></td>
 			<td><?= $evento['nome']; ?></td>
-			<td><?= $evento['preco']; ?></td>
+			<td><?= $this->Money->format($evento['preco']); ?></td>
+			<td><?= $this->Money->format($evento->calculaDesconto()); ?></td>
 			<td><?= $evento['descricao']; ?></td>
+			<td>
+				<?php
+					echo $this->Html->Link('Editar', ['controller' => 'eventos', 'action' => 'editar', $evento['id']]);
+				?>
+				<?php
+					echo $this->Form->postLink('Apagar', ['controller' => 'eventos', 'action' => 'apagar', $evento['id']], ['confirm' => 'Tem certeza que deseja apagar o evento ' . $evento['nome'] . '?']);
+				?>
+			</td>
 		</tr>
 		<?php
 			}
 		?>
 	</tbody>
 </table>
+<?php
+	echo $this->Html->Link('Novo Evento', ['controller' => 'eventos', 'action' => 'novo']);
+?>
