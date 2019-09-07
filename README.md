@@ -3,7 +3,7 @@ doity trainee project using cakephp
 
 # to let the project ready execute each step bellow
 
-download the zip file of the project and unzip the into a project-folder
+download the zip file of the project and unzip it into a project-folder
 
 in the terminal go to the project-folder and run the command: composer install
 
