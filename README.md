@@ -12,7 +12,7 @@ digit Y and press ENTER
 in the terminal go to project-folder\config and change app.php with your database configurations
 
 
-# mysql database commands
+# mysql database commands (use the raw to copy the mysql code)
 
 create database doity;
 
