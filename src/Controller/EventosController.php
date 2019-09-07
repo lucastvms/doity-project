@@ -42,13 +42,13 @@ class EventosController extends AppController {
 
 		if($eventosTable->delete($evento)) {
 			$msg = "Evento removido com sucesso.";
+			$this->Flash->set($msg,['element' => 'default']);
 		} else {
 			$msg = "Erro ao apagar o produto.";
+			$this->Flash->set($msg,['element' => 'error']);
 		}
 
 		$this->redirect('Eventos/index');
-
-		$this->set('msg', $msg);
 	}
 
 	public function salva() {
@@ -59,10 +59,12 @@ class EventosController extends AppController {
 
 		if($eventosTable->save($evento)) {
 			$msg = "Evento salvo com sucesso!";
+			$this->Flash->set($msg,['element' => 'success']);
 		} else {
 			$msg = "Erro ao salvar o produto.";
+			$this->Flash->set($msg,['element' => 'error']);
 		}
 
-		$this->set('msg', $msg);
+		$this->redirect('Eventos/index');
 	}
 }
